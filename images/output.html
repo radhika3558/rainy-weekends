@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.15.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300, "strokeOpacity": 0}}, "data": {"name": "data-6265d03a95844206983c815d55679a5a"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "HighlightColor", "legend": null, "scale": null, "type": "nominal"}, "column": {"field": "City", "title": "City", "type": "nominal"}, "tooltip": [{"field": "Days", "type": "nominal"}, {"field": "City", "type": "nominal"}, {"field": "Rainfall", "type": "quantitative"}], "x": {"field": "Days", "sort": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "type": "nominal"}, "y": {"field": "Rainfall", "title": "Number of Rainy Days", "type": "quantitative"}}, "title": {"text": "Rain likely occured on or around the weekends in these US Cities", "subtitle": ["Number of rainy days in 2023"], "color": "black", "subtitleColor": "gray"}, "transform": [{"calculate": "datum.Highlight ? 'rebeccapurple' : 'plum'", "as": "HighlightColor"}], "$schema": "https://vega.github.io/schema/vega-lite/v5.15.1.json", "datasets": {"data-6265d03a95844206983c815d55679a5a": [{"Days": "Sunday", "City": "Seattle", "Rainfall": 18, "Highlight": true}, {"Days": "Monday", "City": "Seattle", "Rainfall": 18, "Highlight": true}, {"Days": "Tuesday", "City": "Seattle", "Rainfall": 13, "Highlight": false}, {"Days": "Wednesday", "City": "Seattle", "Rainfall": 9, "Highlight": false}, {"Days": "Thursday", "City": "Seattle", "Rainfall": 10, "Highlight": false}, {"Days": "Friday", "City": "Seattle", "Rainfall": 15, "Highlight": true}, {"Days": "Saturday", "City": "Seattle", "Rainfall": 11, "Highlight": false}, {"Days": "Sunday", "City": "New Orleans", "Rainfall": 8, "Highlight": true}, {"Days": "Monday", "City": "New Orleans", "Rainfall": 5, "Highlight": false}, {"Days": "Tuesday", "City": "New Orleans", "Rainfall": 8, "Highlight": false}, {"Days": "Wednesday", "City": "New Orleans", "Rainfall": 4, "Highlight": false}, {"Days": "Thursday", "City": "New Orleans", "Rainfall": 8, "Highlight": false}, {"Days": "Friday", "City": "New Orleans", "Rainfall": 5, "Highlight": false}, {"Days": "Saturday", "City": "New Orleans", "Rainfall": 12, "Highlight": true}, {"Days": "Sunday", "City": "Fort Lauderdale", "Rainfall": 16, "Highlight": true}, {"Days": "Monday", "City": "Fort Lauderdale", "Rainfall": 12, "Highlight": false}, {"Days": "Tuesday", "City": "Fort Lauderdale", "Rainfall": 14, "Highlight": false}, {"Days": "Wednesday", "City": "Fort Lauderdale", "Rainfall": 12, "Highlight": false}, {"Days": "Thursday", "City": "Fort Lauderdale", "Rainfall": 13, "Highlight": false}, {"Days": "Friday", "City": "Fort Lauderdale", "Rainfall": 13, "Highlight": false}, {"Days": "Saturday", "City": "Fort Lauderdale", "Rainfall": 15, "Highlight": true}, {"Days": "Sunday", "City": "NY", "Rainfall": 15, "Highlight": true}, {"Days": "Monday", "City": "NY", "Rainfall": 14, "Highlight": true}, {"Days": "Tuesday", "City": "NY", "Rainfall": 11, "Highlight": false}, {"Days": "Wednesday", "City": "NY", "Rainfall": 8, "Highlight": false}, {"Days": "Thursday", "City": "NY", "Rainfall": 8, "Highlight": false}, {"Days": "Friday", "City": "NY", "Rainfall": 16, "Highlight": true}, {"Days": "Saturday", "City": "NY", "Rainfall": 12, "Highlight": true}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
