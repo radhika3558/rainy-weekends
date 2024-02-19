@@ -215,10 +215,9 @@
 
         }
 
-        .responsive {
+        .chart-row .chart img {
             width: 100%;
-            height: auto;
-          }
+        }
 
 
         p.chart-source {
@@ -322,7 +321,7 @@
         @media (max-width:700px) {
 
             .banner {
-                background-image: url('photos/2022.jpg');
+                background-image: url('images/Firefly\ rain\ in\ central\ park\ 62342.jpg');
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
